@@ -2,7 +2,6 @@
 include_once "_header.php";
 include_once "_navbar.php";
 ?>
-
     <div class="container">
         <div class="row">
             <h1>Hello PHP</h1>
@@ -13,7 +12,6 @@ include_once "_navbar.php";
             echo "Hello Apache"; ?>
         </div>
     </div>
-
 
 <?php
 include_once "_scripts.php";

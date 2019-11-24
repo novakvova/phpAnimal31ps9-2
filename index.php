@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Hello PHP</h1>
-    <?php echo "Hello Apache"; ?>
+    <?php 
+    $a=12;
+    $b=12;
+    $c=$a+$b;
+    echo "Hello Apache"; ?>
 </body>
 </html>

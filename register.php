@@ -21,9 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $errors["image"] = "Поле є обов'язковим";
     }
+    
 
     if (count($errors) == 0) {
         include_once "connection_database.php";
+
+        $email=strip_tags($email);//htmlentities($email);//$dbh->quote($email);
         $hash=password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO tbl_users (email, password, isLock) VALUES (?,?,?)";
         $stmt= $dbh->prepare($sql);
@@ -44,7 +47,7 @@ include_once "input-helper.php" ?>
         <div class="offset-md-3 col-md-6">
             <h3>Реєстрація</h3>
             <form method="post" id="form_register">
-                <?php create_input("email", "Електронна пошта", "email", $errors); ?>
+                <?php create_input("email", "Електронна пошта", "text", $errors); ?>
 
                 <?php create_input("password", "Пароль", "password", $errors); ?>
 

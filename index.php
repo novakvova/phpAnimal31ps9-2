@@ -1,19 +1,36 @@
 <?php
-include_once "_header.php";
-include_once "_navbar.php";
+include "_header.php";
+include_once "connection_database.php";
+
 ?>
-    <div class="container">
-        <div class="row">
-            <h1>Hello PHP</h1>
-            <?php
-            $a = 12;
-            $b = 12;
-            $c = $a + $b;
-            echo "Hello Apache"; ?>
-        </div>
-    </div>
+    <h1>Наші користувачі</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">IsLock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $sth = $dbh->prepare("SELECT Id, Email, IsLock FROM `tbl_users`");
+    $sth->execute();
+    
+    while($result = $sth->fetch(PDO::FETCH_ASSOC))
+    {
+        echo '
+        <tr>
+            <th scope="row">'.$result["Id"].'</th>
+            <td>'.$result["Email"].'</td>
+            <td>'.$result["IsLock"].'</td>
+        </tr>
+        ';
+    }
+    ?>
+  </tbody>
+</table>
 
 <?php
-include_once "_scripts.php";
-include_once "_footer.php";
+include "_footer.php";
 ?>

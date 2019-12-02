@@ -1,6 +1,6 @@
 <?php
 include "_header.php";
-include_once "connection_database.php";
+//include_once "connection_database.php";
 
 ?>
     <h1>Наші користувачі</h1>
@@ -14,19 +14,19 @@ include_once "connection_database.php";
   </thead>
   <tbody>
     <?php
-    $sth = $dbh->prepare("SELECT Id, Email, IsLock FROM `tbl_users`");
-    $sth->execute();
+    // $sth = $dbh->prepare("SELECT Id, Email, IsLock FROM `tbl_users`");
+    // $sth->execute();
     
-    while($result = $sth->fetch(PDO::FETCH_ASSOC))
-    {
-        echo '
-        <tr>
-            <th scope="row">'.$result["Id"].'</th>
-            <td>'.$result["Email"].'</td>
-            <td>'.$result["IsLock"].'</td>
-        </tr>
-        ';
-    }
+    // while($result = $sth->fetch(PDO::FETCH_ASSOC))
+    // {
+    //     echo '
+    //     <tr>
+    //         <th scope="row">'.$result["Id"].'</th>
+    //         <td>'.$result["Email"].'</td>
+    //         <td>'.$result["IsLock"].'</td>
+    //     </tr>
+    //     ';
+    // }
     ?>
   </tbody>
 </table>
